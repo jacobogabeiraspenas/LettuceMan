@@ -20,7 +20,7 @@
     <script>
         async function fetchLiveData() {
             try {
-                const response = await fetch('https://livetrack.garmin.com/services/session/ae672a47-1364-4b4a-b961-5e8e09f62580/trackpoints');
+                const response = await fetch('https://livetrack.garmin.com/services/session/34c65d74-a344-42d2-bb5f-42e8458cd2d2/trackpoints');
                 const data = await response.json();
                 document.getElementById('data').innerText = JSON.stringify(data, null, 2);
             } catch (error) {
