@@ -11,7 +11,7 @@
         }
         #data {
             margin-top: 20px;
-            white-space: pre-wrap; /* Preserve whitespace formatting */
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -28,7 +28,11 @@
                 }
                 
                 const data = await response.json();
-                document.getElementById('data').innerText = JSON.stringify(data, null, 2);
+                const trackPoints = data.trackPoints;
+                const lastTrackPoint = trackPoints[trackPoints.length - 1];
+                const totalDistanceMeters = lastTrackPoint.fitnessPointData.totalDistanceMeters;
+
+                document.getElementById('data').innerText = `Total Distance Meters: ${totalDistanceMeters}`;
             } catch (error) {
                 document.getElementById('data').innerText = 'Error fetching data: ' + error.message;
                 console.error('Error fetching data:', error);
